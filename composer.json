@@ -1,0 +1,25 @@
+{
+  "name": "phpcommon/valueobject",
+  "type": "library",
+  "description": "PHP Value Object Library.",
+  "keywords": ["valueobject", "abstraction", "immutability"],
+  "homepage": "https://github.com/php-common",
+  "license": "MIT",
+  "authors": [{
+    "name": "Marcos Passos",
+    "email": "marcos@marcospassos.com"
+  }],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "Common": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.0.1-dev"
+    }
+  }
+}
