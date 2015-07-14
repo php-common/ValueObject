@@ -2,7 +2,7 @@
   "name": "phpcommon/valueobject",
   "type": "library",
   "description": "PHP Value Object Library.",
-  "keywords": ["valueobject", "abstraction", "immutability"],
+  "keywords": ["value object", "immutability"],
   "homepage": "https://github.com/php-common",
   "license": "MIT",
   "authors": [{
@@ -13,8 +13,8 @@
     "php": ">=5.4.0"
   },
   "autoload": {
-    "psr-0": {
-      "Common": "src/"
+    "psr-4": {
+      "Common\\ValueObject": "src/"
     }
   },
   "extra": {
