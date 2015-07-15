@@ -5,7 +5,7 @@ namespace Common\ValueObject\Internet;
 /**
  * Represents an IP address.
  *
- * @author Marcos Passos <marcos@croct.com>
+ * @author Marcos Passos <marcos@marcospassos.com>
  *
  * @see   https://en.wikipedia.org/wiki/Internet_Protocol
  */
@@ -65,7 +65,7 @@ class Ip
     }
 
     /**
-     * Gets the IP version.
+     * Returns the IP version.
      *
      * @return integer
      *

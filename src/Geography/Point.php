@@ -7,7 +7,7 @@ use InvalidArgumentException;
 /**
  * Represents a geographic location point.
  *
- * @author Marcos Passos <marcos@croct.com>
+ * @author Marcos Passos <marcos@marcospassos.com>
  *
  * @see   https://en.wikipedia.org/wiki/Geographic_coordinate_system
  */
@@ -73,7 +73,7 @@ class Point
     }
 
     /**
-     * Gets the latitude.
+     * Returns the latitude.
      *
      * @return float
      */
@@ -83,7 +83,7 @@ class Point
     }
 
     /**
-     * Gets the longitude.
+     * Returns the longitude.
      *
      * @return float
      */

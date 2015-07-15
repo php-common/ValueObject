@@ -8,7 +8,7 @@ use DateTimeImmutable;
 /**
  * Represents a date-time, often viewed as year-month-day-hour-minute-second.
  *
- * @author Marcos Passos <marcos@croct.com>
+ * @author Marcos Passos <marcos@marcospassos.com>
  */
 final class DateTime extends DateTimeImmutable implements ValueObject
 {

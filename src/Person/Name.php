@@ -7,7 +7,7 @@ use Common\ValueObject\ValueObject;
 /**
  * Represents a person name.
  *
- * @author Marcos Passos <marcos@croct.com>
+ * @author Marcos Passos <marcos@marcospassos.com>
  */
 final class Name implements ValueObject, \IteratorAggregate
 {
@@ -65,7 +65,7 @@ final class Name implements ValueObject, \IteratorAggregate
     }
 
     /**
-     * Gets the first name.
+     * Returns the first name.
      *
      * @return string
      */
@@ -75,7 +75,7 @@ final class Name implements ValueObject, \IteratorAggregate
     }
 
     /**
-     * Gets the middle name.
+     * Returns the middle name.
      *
      * @return string|null
      */
@@ -85,7 +85,7 @@ final class Name implements ValueObject, \IteratorAggregate
     }
 
     /**
-     * Gets the last name.
+     * Returns the last name.
      *
      * @return string|null
      */
@@ -107,7 +107,7 @@ final class Name implements ValueObject, \IteratorAggregate
     }
 
     /**
-     * Gets the name as array.
+     * Returns the name as array.
      *
      * @return array
      */

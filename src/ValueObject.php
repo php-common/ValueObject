@@ -5,7 +5,7 @@ namespace Common\ValueObject;
 /**
  * Represents a value object which equality is not based on identity, but value.
  *
- * @author Marcos Passos <marcos@croct.com>
+ * @author Marcos Passos <marcos@marcospassos.com>
  */
 interface ValueObject
 {

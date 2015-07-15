@@ -8,7 +8,7 @@ use InvalidArgumentException;
 /**
  * Represents an URL.
  *
- * @author Marcos Passos <marcos@croct.com>
+ * @author Marcos Passos <marcos@marcospassos.com>
  */
 final class Url implements ValueObject
 {
@@ -44,7 +44,7 @@ final class Url implements ValueObject
     }
 
     /**
-     * Gets the scheme (e.g. http).
+     * Returns the scheme (e.g. http).
      *
      * @return string
      */
@@ -54,7 +54,7 @@ final class Url implements ValueObject
     }
 
     /**
-     * Gets the user.
+     * Returns the user.
      *
      * @return string|null
      */
@@ -64,7 +64,7 @@ final class Url implements ValueObject
     }
 
     /**
-     * Gets the password.
+     * Returns the password.
      *
      * @return string|null
      */
@@ -74,7 +74,7 @@ final class Url implements ValueObject
     }
 
     /**
-     * Gets the host.
+     * Returns the host.
      *
      * @return string
      */
@@ -84,7 +84,7 @@ final class Url implements ValueObject
     }
 
     /**
-     * Gets the port.
+     * Returns the port.
      *
      * @return string|null
      */
@@ -94,7 +94,7 @@ final class Url implements ValueObject
     }
 
     /**
-     * Gets the path.
+     * Returns the path.
      *
      * @return string|null
      */
@@ -104,7 +104,7 @@ final class Url implements ValueObject
     }
 
     /**
-     * Gets the query.
+     * Returns the query.
      *
      * @return string|null
      */
@@ -114,7 +114,7 @@ final class Url implements ValueObject
     }
 
     /**
-     * Gets the fragment.
+     * Returns the fragment.
      *
      * @return string|null
      */

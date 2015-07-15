@@ -7,7 +7,7 @@ use Common\ValueObject\ValueObject;
 /**
  * Represents an email address.
  *
- * @author Marcos Passos <marcos@croct.com>
+ * @author Marcos Passos <marcos@marcospassos.com>
  *
  * @see    https://en.wikipedia.org/wiki/Email_address
  */
@@ -54,7 +54,7 @@ final class Email implements ValueObject
     }
 
     /**
-     * Gets the localpart (the left of the "@").
+     * Returns the localpart (the left of the "@").
      *
      * @return string
      */
@@ -64,7 +64,7 @@ final class Email implements ValueObject
     }
 
     /**
-     * Gets the domain name (the right of the "@").
+     * Returns the domain name (the right of the "@").
      *
      * @return string
      */

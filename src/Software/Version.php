@@ -8,7 +8,7 @@ use Common\ValueObject\ValueObject;
  * Represents software version, in compliance with the
  * Semantic Versioning Specification.
  *
- * @author Marcos Passos <marcos@croct.com>
+ * @author Marcos Passos <marcos@marcospassos.com>
  *
  * @see    http://semver.org/
  */
