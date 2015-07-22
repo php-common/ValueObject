@@ -3,6 +3,7 @@
 namespace Common\ValueObject\Software;
 
 use Common\ValueObject\ValueObject;
+use InvalidArgumentException;
 
 /**
  * Represents software version, in compliance with the
@@ -78,12 +79,14 @@ final class Version implements ValueObject
      * @param string $version The version number.
      *
      * @return Version
+     *
+     * @throws InvalidArgumentException If the version string is malformed.
      */
     static public function fromString($version)
     {
         if (!preg_match(self::VERSION_REGEX, $version)) {
-            throw new \InvalidArgumentException(sprintf(
-                'Malformed version number string "%s".',
+            throw new InvalidArgumentException(sprintf(
+                'Malformed version string "%s".',
                 $version
             ));
         }
