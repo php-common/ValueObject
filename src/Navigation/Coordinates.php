@@ -1,27 +1,28 @@
 <?php
 
-namespace Common\ValueObject\Geography;
+namespace Common\ValueObject\Navigation;
 
+use Common\ValueObject\ValueObject;
 use InvalidArgumentException;
 
 /**
- * Represents a geographic point location.
+ * Represents a geographic point location by coordinates.
  *
  * @author Marcos Passos <marcos@marcospassos.com>
  *
  * @see    https://en.wikipedia.org/wiki/Geographic_coordinate_system
  */
-class Coordinates
+class Coordinates implements ValueObject
 {
     /**
-     * The latitude in decimal degrees.
+     * The latitude in degrees.
      *
      * @var float
      */
     private $latitude;
 
     /**
-     * The longitude in decimal degrees.
+     * The longitude in degrees.
      *
      * @var float
      */
@@ -37,8 +38,8 @@ class Coordinates
     /**
      * Constructor.
      *
-     * @param float      $latitude  The latitude in decimal degrees, must range from -90 to 90.
-     * @param float      $longitude The longitude in decimal degrees, must range from -180 to 180.
+     * @param float      $latitude  The latitude in degrees, must range from -90 to 90.
+     * @param float      $longitude The longitude in degrees, must range from -180 to 180.
      * @param float|null $altitude  The altitude in meters.
      *
      * @throws InvalidArgumentException When the latitude is invalid.
@@ -89,7 +90,7 @@ class Coordinates
     }
 
     /**
-     * Returns the latitude in decimal degrees.
+     * Returns the latitude in degrees.
      *
      * @return float
      */
@@ -99,7 +100,7 @@ class Coordinates
     }
 
     /**
-     * Returns the longitude in decimal degrees.
+     * Returns the longitude in degrees.
      *
      * @return float
      */
@@ -126,6 +127,18 @@ class Coordinates
     public function hasAltitude()
     {
         return null !== $this->altitude;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function equals($other)
+    {
+        if (!$other instanceof self) {
+            return false;
+        }
+
+        return (string) $this === (string) $other;
     }
 
     /**
