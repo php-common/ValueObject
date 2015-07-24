@@ -59,7 +59,6 @@ class Coordinate2D implements ValueObject
 
         $this->latitude = (float) $latitude;
         $this->longitude = (float) $longitude;
-        $this->altitude = null !== $altitude ? (float) $altitude : null;
     }
 
     /**
@@ -100,17 +99,6 @@ class Coordinate2D implements ValueObject
     public function getLongitude()
     {
         return $this->longitude;
-    }
-
-    /**
-     * Checks whether the altitude coordinate is available.
-     *
-     * @return boolean `true` if the altitude coordinate is available, `false`
-     *                 otherwise.
-     */
-    public function hasAltitude()
-    {
-        return null !== $this->altitude;
     }
 
     /**
