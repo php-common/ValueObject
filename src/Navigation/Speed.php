@@ -3,11 +3,10 @@
 namespace Common\ValueObject\Navigation;
 
 use Common\ValueObject\ValueObject;
-use Common\ValueObject\Misc\Unit;
 use InvalidArgumentException;
 
 /**
- * Represents a speed value.
+ * Represents the speed at which the object is moving in meters per second.
  *
  * @author Marcos Passos <marcos@marcospassos.com>
  *
@@ -23,19 +22,11 @@ class Speed implements ValueObject
     private $value;
 
     /**
-     * The speed unit.
-     *
-     * @var Unit
-     */
-    private $unit;
-
-    /**
      * Constructor.
      *
      * @param float $value The speed value.
-     * @param Unit  $unit  The speed unit.
      */
-    public function __construct($value, Unit $unit)
+    public function __construct($value)
     {
         if (!is_numeric($value) || $value < 0) {
             throw new InvalidArgumentException(sprintf(
@@ -44,15 +35,7 @@ class Speed implements ValueObject
             ));
         }
 
-        if (!$unit->isOfType(Unit::TYPE_SPEED)) {
-            throw new InvalidArgumentException(sprintf(
-                'Expected a valid speed unit, but got %s.',
-                $unit
-            ));
-        }
-
         $this->value = $value;
-        $this->unit = $unit;
     }
 
     /**
@@ -66,16 +49,6 @@ class Speed implements ValueObject
     }
 
     /**
-     * Returns the speed unit.
-     *
-     * @return Unit
-     */
-    public function getUnit()
-    {
-        return $this->unit;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function equals($other)
@@ -84,7 +57,7 @@ class Speed implements ValueObject
             return false;
         }
 
-        return (string) $this === (string) $other;
+        return $this->value === $other->value;
     }
 
     /**
@@ -94,6 +67,6 @@ class Speed implements ValueObject
      */
     public function __toString()
     {
-        return sprintf('%s %s', $this->value, $this->unit);
+        return (string) $this->value;
     }
 }

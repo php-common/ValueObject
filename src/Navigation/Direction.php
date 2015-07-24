@@ -6,13 +6,17 @@ use Common\ValueObject\ValueObject;
 use InvalidArgumentException;
 
 /**
- * Represents a heading.
+ * Represents a direction that is measured in degrees relative to true north.
+ *
+ * Direction values are measured in degrees starting at due north and continue
+ * clockwise around the compass. Thus, north is 0 degrees, east is 90 degrees,
+ * south is 180 degrees, and so on.
  *
  * @author Marcos Passos <marcos@marcospassos.com>
  *
  * @see    https://en.wikipedia.org/wiki/Course_(navigation)
  */
-class Heading implements ValueObject
+class Direction implements ValueObject
 {
     /**
      * Towards the north.
@@ -22,7 +26,7 @@ class Heading implements ValueObject
     /**
      * Towards the east.
      */
-    const EAST  = 1;
+    const EAST = 1;
 
     /**
      * Towards the south.
@@ -32,7 +36,7 @@ class Heading implements ValueObject
     /**
      * Towards the west.
      */
-    const WEST  = 3;
+    const WEST = 3;
 
     /**
      * The angle in degrees.
@@ -75,7 +79,7 @@ class Heading implements ValueObject
      */
     public function getDirection()
     {
-        switch(true) {
+        switch (true) {
             case ($this->angle <= 90):
                 return self::NORTH;
             case ($this->angle <= 180):
@@ -90,7 +94,8 @@ class Heading implements ValueObject
     /**
      * Checks whether the heading points toward north.
      *
-     * @return boolean Returns `true` if the heading points toward north, `false` otherwise.
+     * @return boolean Returns `true` if the heading points toward north,
+     *                 `false` otherwise.
      */
     public function isNorth()
     {
@@ -100,7 +105,8 @@ class Heading implements ValueObject
     /**
      * Checks whether the heading points toward east.
      *
-     * @return boolean Returns `true` if the heading points toward east, `false` otherwise.
+     * @return boolean Returns `true` if the heading points toward east,
+     *                 `false` otherwise.
      */
     public function isEast()
     {
@@ -110,7 +116,8 @@ class Heading implements ValueObject
     /**
      * Checks whether the heading points toward south.
      *
-     * @return boolean Returns `true` if the heading points toward south, `false` otherwise.
+     * @return boolean Returns `true` if the heading points toward south,
+     *                 `false` otherwise.
      */
     public function isSouth()
     {
@@ -120,7 +127,8 @@ class Heading implements ValueObject
     /**
      * Checks whether the heading points toward west.
      *
-     * @return boolean Returns `true` if the heading points toward west, `false` otherwise.
+     * @return boolean Returns `true` if the heading points toward west,
+     *                 `false` otherwise.
      */
     public function isWest()
     {

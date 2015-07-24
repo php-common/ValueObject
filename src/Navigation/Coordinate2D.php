@@ -6,44 +6,42 @@ use Common\ValueObject\ValueObject;
 use InvalidArgumentException;
 
 /**
- * Represents a geographic point location by coordinates.
+ * Represents a geographical coordinate using the WGS 84 reference frame.
  *
  * @author Marcos Passos <marcos@marcospassos.com>
  *
  * @see    https://en.wikipedia.org/wiki/Geographic_coordinate_system
  */
-class Coordinates implements ValueObject
+class Coordinate2D implements ValueObject
 {
     /**
      * The latitude in degrees.
+     *
+     * Positive values indicate latitudes north of the equator, while negative
+     * values indicate latitudes south of the equator.
      *
      * @var float
      */
     private $latitude;
 
     /**
-     * The longitude in degrees.
+     * The longitude in degrees. Measurements are relative to the zero
+     * meridian, with positive values extending east of the meridian and
+     * negative values extending west of the meridian.
      *
      * @var float
      */
     private $longitude;
 
     /**
-     * The altitude in meters.
-     *
-     * @var float|null
-     */
-    private $altitude;
-
-    /**
      * Constructor.
      *
-     * @param float      $latitude  The latitude in degrees, must range from -90 to 90.
-     * @param float      $longitude The longitude in degrees, must range from -180 to 180.
-     * @param float|null $altitude  The altitude in meters.
+     * @param float $latitude  The latitude in degrees, must range from -90 to
+     *                         90.
+     * @param float $longitude The longitude in degrees, must range from -180
+     *                         to 180.
      *
-     * @throws InvalidArgumentException When the latitude is invalid.
-     * @throws InvalidArgumentException When the longitude is invalid.
+     * @throws InvalidArgumentException  If any of the arguments is invalid.
      */
     public function __construct($latitude, $longitude, $altitude = null)
     {
@@ -54,7 +52,7 @@ class Coordinates implements ValueObject
             ));
         }
 
-        if (!is_numeric($longitude) ||  $longitude < -180 || $longitude > 180) {
+        if (!is_numeric($longitude) || $longitude < -180 || $longitude > 180) {
             throw new InvalidArgumentException(sprintf(
                 'The longitude must be a number ranging from -180 to 180, %s given.',
                 $longitude
@@ -63,7 +61,7 @@ class Coordinates implements ValueObject
 
         $this->latitude = (float) $latitude;
         $this->longitude = (float) $longitude;
-        $this->altitude = null !== $altitude ? (float) $altitude: null;
+        $this->altitude = null !== $altitude ? (float) $altitude : null;
     }
 
     /**
@@ -72,7 +70,7 @@ class Coordinates implements ValueObject
      *
      * @param string $coordinates The geographic point.
      *
-     * @return Coordinates
+     * @return Coordinate2D
      *
      * @throws InvalidArgumentException If the coordinates string is malformed.
      *
@@ -122,7 +120,8 @@ class Coordinates implements ValueObject
     /**
      * Checks whether the altitude coordinate is available.
      *
-     * @return boolean `true` if the altitude coordinate is available, `false` otherwise.
+     * @return boolean `true` if the altitude coordinate is available, `false`
+     *                 otherwise.
      */
     public function hasAltitude()
     {
