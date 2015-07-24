@@ -9,8 +9,6 @@ use InvalidArgumentException;
  * Represents a geographical coordinate using the WGS 84 reference frame.
  *
  * @author Marcos Passos <marcos@marcospassos.com>
- *
- * @see    https://en.wikipedia.org/wiki/Geographic_coordinate_system
  */
 class Coordinate2D implements ValueObject
 {
@@ -65,26 +63,23 @@ class Coordinate2D implements ValueObject
     }
 
     /**
-     * Parses an ISO 6709 Standard representation of geographic point location
-     * by coordinates in into an object.
+     * Parses an string representation of the coordinates in into an object.
      *
      * @param string $coordinates The geographic point.
      *
      * @return Coordinate2D
      *
      * @throws InvalidArgumentException If the coordinates string is malformed.
-     *
-     * @see https://en.wikipedia.org/wiki/ISO_6709
      */
     public function fromString($coordinates)
     {
-        if (!preg_match('/[0-9]+\.[0-9]+ [0-9]+\.[0-9]+( [0-9]+\.[0-9]+/)?', $coordinates)) {
+        if (!preg_match('/[0-9]+\.[0-9]+ [0-9]+\.[0-9]+', $coordinates)) {
             throw new InvalidArgumentException('Malformed coordinates string.');
         }
 
-        $components = explode(" ", $coordinates);
+        list ($latitude, $longitude) = explode(" ", $coordinates);
 
-        return new self($components[0], $components[1], isset($components[2]) ? $components[2] : null);
+        return new self($latitude, $longitude);
     }
 
     /**
@@ -105,16 +100,6 @@ class Coordinate2D implements ValueObject
     public function getLongitude()
     {
         return $this->longitude;
-    }
-
-    /**
-     * Returns the altitude in meters, if available.
-     *
-     * @return float|null
-     */
-    public function getAltitude()
-    {
-        return $this->altitude;
     }
 
     /**
@@ -141,19 +126,12 @@ class Coordinate2D implements ValueObject
     }
 
     /**
-     * Returns the ISO 6709 Standard representation of geographic point location
-     * by coordinates.
+     * Returns the string representation of the coordinate.
      *
      * @return string
-     *
-     * @see https://en.wikipedia.org/wiki/ISO_6709
      */
     public function __toString()
     {
-        if (!$this->hasAltitude()) {
-            return sprintf('%f %f', $this->latitude, $this->longitude);
-        }
-
-        return sprintf('%f %f %f', $this->latitude, $this->longitude, $this->altitude);
+        return sprintf('%f %f', $this->latitude, $this->longitude);
     }
 }
