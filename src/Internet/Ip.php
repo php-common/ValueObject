@@ -43,7 +43,7 @@ class Ip
         }
 
         $version = self::IPV6;
-        if (false === filter_var($this->address, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+        if (false === filter_var($address, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
             $version = self::IPV4;
         }
 
