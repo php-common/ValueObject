@@ -36,7 +36,7 @@ final class Url implements ValueObject
      *
      * @param string $url The URL.
      *
-     * @return Email
+     * @return Url
      */
     public static function fromString($url)
     {
